@@ -37,7 +37,7 @@ const UPSTREAM_HOST = 'api.anthropic.com';
 const VERSION = '2.2.3';
 
 // Claude Code version to emulate (update when new CC versions are released)
-const CC_VERSION = '2.1.205';
+const CC_VERSION = '2.1.296';
 
 // Last upstream request-id, used to emit the modern `cc_prev_req` billing-header
 // chain field that real CC 2.1.205 sends on first-party requests. Genuine sessions
@@ -61,8 +61,8 @@ try {
   }
 } catch (e) {}
 
-// Beta flags — EXACT list + order captured from genuine Claude Code 2.1.205
-// (via capture proxy, 2026-07-16). Must match verbatim; the set/order is a
+// Beta flags — EXACT list + order captured from genuine Claude Code 2.1.296
+// (via capture proxy, 2026-10-10). Must match verbatim; the set/order is a
 // fingerprint. Genuine CC replaces the beta header wholesale, so we override.
 const REQUIRED_BETAS = [
   'claude-code-20250219',
@@ -71,10 +71,10 @@ const REQUIRED_BETAS = [
   'thinking-token-count-2026-05-13',
   'context-management-2025-06-27',
   'prompt-caching-scope-2026-01-05',
-  'mid-conversation-system-2026-04-07',
   'advisor-tool-2026-03-01',
-  'advanced-tool-use-2025-11-20',
   'effort-2025-11-24',
+  'dangerous-tool-use-2026-09-03',
+  'afk-mode-2026-01-31',
   'extended-cache-ttl-2025-04-11'
 ];
 
@@ -170,7 +170,7 @@ function getStainlessHeaders() {
     'x-stainless-arch': arch,
     'x-stainless-lang': 'js',
     'x-stainless-os': osName,
-    'x-stainless-package-version': '0.94.0',
+    'x-stainless-package-version': '0.128.0',
     'x-stainless-runtime': 'node',
     'x-stainless-runtime-version': 'v26.3.0',
     'x-stainless-retry-count': '0',
